@@ -7,19 +7,20 @@ public class Main {
     public static void main(String[] args) {
 
     }
+
     public int[] frequencySort(int[] a) {
         List<int[]> list = new ArrayList<>();
 
-        Map<Integer,Integer> frqmap = new HashMap<>();
+        Map<Integer,Integer> map = new HashMap<>();
         for(int x: a){
-            frqmap.put(x, 1 + frqmap.getOrDefault(x,0));
+            map.put(x, 1 + map.getOrDefault(x,0));
         }
 
 
-        for(Map.Entry<Integer,Integer> ent: frqmap.entrySet()){
+        for(Map.Entry<Integer,Integer> ent: map.entrySet()){
             int key = ent.getKey();
-            int val = ent.getValue();
-            list.add(new int[]{key,val});
+            int value = ent.getValue();
+            list.add(new int[]{key,value});
         }
 
         Collections.sort(list, new Comparator<int[]>(){

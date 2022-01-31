@@ -6,25 +6,25 @@ public class Main {
 
     }
 
-    public String customSortString(String S, String T) {
+    public String customSortString(String S1, String S2) {
 
         int[] count = new int[26];
-        for (char c : T.toCharArray())
+        for (char c : S2.toCharArray())
             count[c - 'a']++;
+        
+        StringBuilder answer = new StringBuilder();
 
-        StringBuilder ans = new StringBuilder();
-
-        for (char c : S.toCharArray()) {
+        for (char c : S1.toCharArray()) {
             for (int i = 0; i < count[c - 'a']; ++i)
-                ans.append(c);
+                answer.append(c);
             count[c - 'a'] = 0;
         }
 
         for (char c = 'a'; c <= 'z'; ++c)
             for (int i = 0; i < count[c - 'a']; ++i)
-                ans.append(c);
+                answer.append(c);
 
-        return ans.toString();
+        return answer.toString();
     }
 
 

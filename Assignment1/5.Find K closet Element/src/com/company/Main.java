@@ -9,14 +9,14 @@ public class Main {
 
     }
 
-    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+    public List<Integer> findClosestElements(int[] arr, int a, int b) {
 
         int left = 0;
-        int right = arr.length - k;
+        int right = arr.length - a;
 
         while (left < right) {
             int mid = (left + right) / 2;
-            if (x - arr[mid] > arr[mid + k] - x) {
+            if (b - arr[mid] > arr[mid + a] - b) {
                 left = mid + 1;
             } else {
                 right = mid;
@@ -24,7 +24,7 @@ public class Main {
         }
 
         List<Integer> result = new ArrayList<Integer>();
-        for (int i = left; i < left + k; i++) {
+        for (int i = left; i < left + a; i++) {
             result.add(arr[i]);
         }
 

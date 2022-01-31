@@ -8,6 +8,7 @@ public class Main {
 
     }
     public String reorganizeString(String s) {
+
         Map<Character,Integer> map = new HashMap<>();
 
         for(char c:s.toCharArray()){
@@ -17,18 +18,21 @@ public class Main {
         list.sort((a,b) -> map.get(b) - map.get(a));
 
 
-        int idx = 0;
-        Integer size = map.get(list.get(idx));
-        if(size > s.length() / 2 + s.length()  % 2 ) return "";       // prune
+        int index = 0;
+        Integer size = map.get(list.get(index));
+        if(size > s.length() / 2 + s.length()  % 2 ) {
+            return "";
+        }
 
-        String[] ans = new String[size];
-        Arrays.fill(ans,"");
+        String[] answer = new String[size];
+        Arrays.fill(answer,"");
 
         for (char curChar : list) {
             for (int j = 0; j < map.get(curChar); j++) {
-                ans[(idx++) % size] += curChar;
+                answer[(index++) % size] += curChar;
             }
         }
-        return String.join("",ans);
+
+        return String.join("",answer);
     }
 }
